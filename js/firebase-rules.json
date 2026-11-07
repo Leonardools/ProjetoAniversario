@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "messages": {
+      ".read": true,
+      "$messageId": {
+        ".write": "(!data.exists() && newData.exists()) || (auth != null && auth.uid === 'PbsRAdPJPSd1OU4xSQ9cHd4OTC53')",
+        ".validate": "newData.hasChildren(['name', 'text', 'createdAt'])",
+        "name": { ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 60" },
+        "text": { ".validate": "newData.isString() && newData.val().length >= 3 && newData.val().length <= 500" },
+        "createdAt": { ".validate": "newData.isNumber() && newData.val() <= now && newData.val() > now - 86400000" },
+        "$other": { ".validate": false }
+      }
+    }
+  }
+}

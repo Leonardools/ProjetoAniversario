@@ -1,3 +1,5 @@
+import { messagesRef, push, onValue } from "./firebase.js";
+
 'use strict';
 
 // =============================================================
@@ -20,20 +22,20 @@ const CONFIG = {
   instagram: 'https://www.instagram.com/_leonardools?vrfl=MTF4MjlyMHlwcHllZw%3D%3D&utm_source=qr', // URL completa do perfil, se desejar.
   facebook: '',
   spotifyPlaylist: 'https://open.spotify.com/track/4mZu6NuOntvYZqCZPrxTqT?si=u6E0wkNsTee_jhZVqTDBfQ&utm_source=copy-link', // URL completa da playlist; exibida no rodapé.
-  mensagemEspecial: 'Dezembro marca o encerramento de uma etapa muito importante: minha formação em Análise e Desenvolvimento de Sistemas. Foram semestres de aprendizado, desafios, projetos, noites estudando e muita persistência. E como dezembro também é mês do meu aniversário, decidi juntar os dois motivos em uma só comemoração! Quero celebrar a vida, a conquista do diploma e tudo o que ainda vem pela frente ao lado das pessoas que fizeram parte da minha caminhada. Sua presença vai deixar esse dia ainda mais especial.',
+  mensagemEspecial: 'Dezembro marca o encerramento de uma etapa muito importante, minha formação na faculdade, foram semestres de aprendizado, desafios, projetos, noites estudando e muita persistência e como dezembro também é mês do meu aniversário, decidi juntar os dois motivos em uma só comemoração! Quero celebrar a vida, a conquista do diploma e tudo o que ainda vem pela frente ao lado das pessoas que fizeram parte da minha caminhada. Sua presença vai deixar esse dia ainda mais especial.',
   fraseHero: 'O deploy mais esperado do ano: uma nova versão da minha história, com aniversário e formatura no mesmo evento.',
   fotos: [
     { src: 'img/WhatsApp Image 2026-11-07 at 16.10.19.jpeg', legenda: 'Memórias inesquecíveis' },
-    { src: 'assets/images/foto-2.svg', legenda: 'A beleza de cada momento' },
-    { src: 'assets/images/foto-3.svg', legenda: 'Histórias para contar' },
-    { src: 'assets/images/foto-4.svg', legenda: 'Um brinde à vida' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg', legenda: 'A beleza de cada momento' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 17.00.34.jpeg', legenda: 'Histórias para contar' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (1).jpeg', legenda: 'Um brinde à vida' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.06.23.jpeg', legenda: 'momentos especiais' },
-    { src: 'assets/images/foto-6.svg', legenda: 'O melhor ainda está por vir' }
+    { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (2).jpeg', legenda: 'O melhor ainda está por vir' }
   ],
   historia: [
     { titulo: 'O primeiro commit', periodo: 'Tudo começa com uma ideia', texto: 'Toda jornada começa com curiosidade, vontade de aprender e coragem para dar o primeiro passo.', foto: 'img/WhatsApp Image 2026-11-07 at 16.17.59.jpeg' },
-    { titulo: 'Iniciando a graduação', periodo: 'Análise e Desenvolvimento de Sistemas', texto: 'Novos conceitos, lógica, algoritmos e a descoberta de que tecnologia também é criar possibilidades.', foto: 'assets/images/foto-2.svg' },
-    { titulo: 'Entre bugs e entregas', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'assets/images/foto-3.svg' },
+    { titulo: 'Graduação', periodo: 'Análise e Desenvolvimento de Sistemas', texto: 'Novos conceitos, lógica, algoritmos e a descoberta de que tecnologia também é criar possibilidades.', foto: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg' },
+    { titulo: 'Entre bugs e entregas', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'img/WhatsApp Image 2026-11-07 at 17.07.35.jpeg' },
     { titulo: 'Formatura + aniversário', periodo: '12 de dezembro de 2026 · 12h30', texto: 'O ciclo da graduação chega à entrega final. Agora é hora de celebrar a conquista, a vida e os próximos desafios.', foto: 'assets/images/foto-4.svg' }
   ]
 };
@@ -196,17 +198,62 @@ function initRSVP() {
 }
 
 // =============================================================
-// MURAL — somente mensagens do dispositivo atual (LocalStorage)
+// MURAL COMPARTILHADO — Firebase Realtime Database
 // =============================================================
-const WISH_KEY = 'aniversario_recados';
-function readWishes() { try { const data = JSON.parse(localStorage.getItem(WISH_KEY) || '[]'); return Array.isArray(data) ? data.slice(-30) : []; } catch { return []; } }
-function renderWishes() {
-  const grid = $('#wishesGrid'); grid.replaceChildren(); const wishes = readWishes();
-  if (!wishes.length) { const empty = document.createElement('p'); empty.className = 'empty-wishes'; empty.textContent = 'O primeiro recado pode ser o seu ✦'; grid.append(empty); return; }
-  wishes.slice().reverse().forEach(wish => { const card = document.createElement('article'); card.className = 'wish-card glass'; const quote = document.createElement('span'); quote.className = 'quote-mark'; quote.textContent = '“'; const message = document.createElement('p'); message.textContent = wish.message; const author = document.createElement('strong'); author.textContent = `— ${wish.name}`; card.append(quote, message, author); grid.append(card); });
-}
+// Os recados são públicos e sincronizados entre navegadores.
+// O Firebase aplica as regras de criação, leitura e exclusão.
 function initWishes() {
-  renderWishes(); $('#wishForm').addEventListener('submit', e => { e.preventDefault(); const name = $('#wishName').value.trim(), message = $('#wishText').value.trim(); if (name.length < 2 || message.length < 3) { $('#wishStatus').textContent = 'Preencha seu nome e uma mensagem com pelo menos 3 caracteres.'; return; } const wishes = readWishes(); wishes.push({ name: name.slice(0, 60), message: message.slice(0, 400), date: new Date().toISOString() }); try { localStorage.setItem(WISH_KEY, JSON.stringify(wishes.slice(-30))); $('#wishStatus').textContent = '✓ Recado salvo neste dispositivo!'; $('#wishForm').reset(); renderWishes(); } catch { $('#wishStatus').textContent = 'O navegador não permitiu salvar o recado.'; } });
+  const grid = $('#wishesGrid');
+  const form = $('#wishForm');
+  const status = $('#wishStatus');
+  const submit = form.querySelector('[type="submit"]');
+
+  // onValue recebe uma atualização sempre que o banco mudar.
+  onValue(messagesRef, snapshot => {
+    grid.replaceChildren();
+    const raw = snapshot.val() || {};
+    const wishes = Object.entries(raw).map(([id, value]) => ({ id, ...value }))
+      .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0)).slice(0, 100);
+    if (!wishes.length) {
+      const empty = document.createElement('p');
+      empty.className = 'empty-wishes';
+      empty.textContent = 'O primeiro recado pode ser o seu ✦';
+      grid.append(empty);
+      return;
+    }
+    wishes.forEach(wish => {
+      const card = document.createElement('article'); card.className = 'wish-card glass';
+      const quote = document.createElement('span'); quote.className = 'quote-mark'; quote.textContent = '“';
+      const message = document.createElement('p'); message.textContent = wish.text || '';
+      const author = document.createElement('strong'); author.textContent = `— ${wish.name || 'Convidado'}`;
+      const date = document.createElement('small');
+      date.textContent = Number.isFinite(wish.createdAt) ? new Date(wish.createdAt).toLocaleString('pt-BR') : '';
+      card.append(quote, message, author, date); grid.append(card);
+    });
+  }, error => {
+    status.textContent = 'Não foi possível carregar os recados. Verifique sua conexão e as regras do Firebase.';
+    console.error('Firebase mural:', error);
+  });
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    const name = $('#wishName').value.trim();
+    const text = $('#wishText').value.trim();
+    if (name.length < 2 || name.length > 60 || text.length < 3 || text.length > 500) {
+      status.textContent = 'Informe um nome (2–60 caracteres) e um recado (3–500 caracteres).';
+      return;
+    }
+    if (submit) submit.disabled = true;
+    status.textContent = 'Publicando seu recado...';
+    try {
+      await push(messagesRef, { name, text, createdAt: Date.now() });
+      form.reset();
+      status.textContent = '✓ Recado publicado para todos os convidados!';
+    } catch (error) {
+      console.error('Erro ao publicar recado:', error);
+      status.textContent = 'Não foi possível publicar. Confira as regras do Firebase e tente novamente.';
+    } finally { if (submit) submit.disabled = false; }
+  });
 }
 
 // =============================================================
