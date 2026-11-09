@@ -35,7 +35,7 @@ const CONFIG = {
   historia: [
     { titulo: 'O primeiro commit', periodo: 'Tudo começa com uma ideia', texto: 'Toda jornada começa com curiosidade, vontade de aprender e coragem para dar o primeiro passo.', foto: 'img/WhatsApp Image 2026-11-07 at 16.17.59.jpeg' },
     { titulo: 'Graduação', periodo: 'Análise e Desenvolvimento de Sistemas', texto: 'Novos conceitos, lógica, algoritmos e a descoberta de que tecnologia também é criar possibilidades.', foto: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg' },
-    { titulo: 'Entre bugs e entregas', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'img/WhatsApp Image 2026-11-07 at 17.07.33.jpeg' },
+    { titulo: 'Entre bugs e entregas', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'img/entre bugs e entregas.jpeg' },
     { titulo: 'Formatura + aniversário', periodo: '12 de dezembro de 2026 · 12h30', texto: 'O ciclo da graduação chega à entrega final. Agora é hora de celebrar a conquista, a vida e os próximos desafios.', foto: 'img/WhatsApp Image 2026-11-07 at 16.05.25.jpeg' }
   ]
 };
