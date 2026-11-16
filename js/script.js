@@ -20,14 +20,14 @@ const CONFIG = {
   linkMapa: 'https://maps.app.goo.gl/wFK2VhjbUEWYyLRm7', // URL completa do Google Maps; vazio = busca pelo endereço.
   whatsappNumero: '5561986712861',
   instagram: 'https://www.instagram.com/_leonardools?vrfl=MTF4MjlyMHlwcHllZw%3D%3D&utm_source=qr', // URL completa do perfil, se desejar.
-  facebook: '',
+  facebook: 'https://www.instagram.com/_leonardools?vrfl=MTF4MjlyMHlwcHllZw%3D%3D&utm_source=qr',
   spotifyPlaylist: 'https://open.spotify.com/track/4mZu6NuOntvYZqCZPrxTqT?si=u6E0wkNsTee_jhZVqTDBfQ&utm_source=copy-link', // URL completa da playlist; exibida no rodapé.
   mensagemEspecial: 'Dezembro marca o encerramento de uma etapa muito importante, minha formação na faculdade, foram semestres de aprendizado, desafios, projetos, noites estudando e muita persistência e como dezembro também é mês do meu aniversário, decidi juntar os dois motivos em uma só comemoração! Quero celebrar a vida, a conquista do diploma e tudo o que ainda vem pela frente ao lado das pessoas que fizeram parte da minha caminhada, sua presença vai deixar esse dia ainda mais especial.📚​🎓💻​​',
   fraseHero: 'O deploy mais esperado do ano: uma nova versão da minha história, com aniversário e formatura no mesmo evento.',
   fotos: [
-    { src: 'img/WhatsApp Image 2026-11-07 at 16.10.19.jpeg', legenda: 'Memórias inesquecíveis' },
-    { src: 'img/WhatsApp Image 2026-11-07 at 16.05.25.jpeg', legenda: 'Momentos aleatórios' },
-    { src: 'img/WhatsApp Image 2026-11-07 at 17.00.34.jpeg', legenda: 'Histórias para contar' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 16.10.19.jpeg', legenda: 'Fazendo história desde 1998' },
+    { src: 'img/Momentos aleatórios.jpeg', legenda: 'Momentos aleatórios' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 17.00.34.jpeg', legenda: 'Locais aleatórios' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (1).jpeg', legenda: 'Um brinde à vida' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.06.23.jpeg', legenda: 'momentos especiais' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (2).jpeg', legenda: 'O melhor ainda está por vir' }
