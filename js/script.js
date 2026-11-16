@@ -58,7 +58,7 @@ const safeURL = (value) => { try { const url = new URL(value); return ['https:',
 // PREENCHIMENTO CENTRALIZADO DE CONTEÚDO
 // =============================================================
 function populateContent() {
-  document.title = `${CONFIG.nomeAniversariante} • Formatura ADS + Aniversário | Convite`; 
+  document.title = `${CONFIG.nomeAniversariante} • Convite`; 
   $('meta[name="description"]').content = `Convite para celebrar o aniversário e a formatura em Análise e Desenvolvimento de Sistemas de ${CONFIG.nomeAniversariante}. ${dateLong}, às ${CONFIG.horarioEvento}.` ;
   $('meta[property="og:title"]').content = `${CONFIG.nomeAniversariante} • Convite de formatura e aniversário` ;
   $('meta[property="og:description"]').content = `Uma conquista em ADS e mais um ano de vida para celebrar. ${dateLong}, às ${CONFIG.horarioEvento}.` ;
@@ -186,7 +186,7 @@ function initRSVP() {
     if (destination.length < 10 || destination.length > 15) { status.textContent = 'O WhatsApp do organizador precisa ser configurado no script.js.'; return; }
     const confirmation = { name, phone, companions, createdAt: new Date().toISOString() };
     try { localStorage.setItem('aniversario_rsvp', JSON.stringify(confirmation)); } catch { /* Navegadores privados podem bloquear armazenamento; WhatsApp continua disponível. */ }
-    const message = `Olá! 🎓🎉\n\n✅ Estou confirmando minha presença na comemoração de formatura em ADS e aniversário de ${CONFIG.nomeAniversariante}.\n\nNome: ${name}\nTelefone: ${phone}\nQuantidade de acompanhantes: ${companions}\n\nNos vemos na festa! 🎉`;
+    const message = `Olá Leonardo! \n Estou confirmando minha presença na festa.\nNome: ${name}\nTelefone: ${phone}\nQuantidade de acompanhantes: ${companions}\n 🎉 \n Nome do acompanhantes 1: \n Nome do acompanhantes 2:  \n Nome do acompanhantes 3: \n Nome do acompanhantes 4:`;
     const url = `https://wa.me/${destination}?text=${encodeURIComponent(message)}`;
     status.textContent = '✓ Confirmação preparada! Envie a mensagem na janela do WhatsApp.';
     status.classList.add('success'); $('#rsvpForm').classList.add('confirmed');
