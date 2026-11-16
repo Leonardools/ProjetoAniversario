@@ -18,25 +18,25 @@ const CONFIG = {
   localEvento: 'Residencial Alvorada - SH Ponte Alta Norte',
   enderecoCompleto: 'Ponte Alta Norte (Gama), Brasília - DF, 72427-010',
   linkMapa: 'https://maps.app.goo.gl/wFK2VhjbUEWYyLRm7', // URL completa do Google Maps; vazio = busca pelo endereço.
-  whatsappNumero: '5561996712861', // SUBSTITUA pelo número real, sem +, espaços ou pontuação.
+  whatsappNumero: '5561996712861',
   instagram: 'https://www.instagram.com/_leonardools?vrfl=MTF4MjlyMHlwcHllZw%3D%3D&utm_source=qr', // URL completa do perfil, se desejar.
   facebook: '',
   spotifyPlaylist: 'https://open.spotify.com/track/4mZu6NuOntvYZqCZPrxTqT?si=u6E0wkNsTee_jhZVqTDBfQ&utm_source=copy-link', // URL completa da playlist; exibida no rodapé.
-  mensagemEspecial: 'Dezembro marca o encerramento de uma etapa muito importante, minha formação na faculdade, foram semestres de aprendizado, desafios, projetos, noites estudando e muita persistência e como dezembro também é mês do meu aniversário, decidi juntar os dois motivos em uma só comemoração! Quero celebrar a vida, a conquista do diploma e tudo o que ainda vem pela frente ao lado das pessoas que fizeram parte da minha caminhada. Sua presença vai deixar esse dia ainda mais especial.',
+  mensagemEspecial: 'Dezembro marca o encerramento de uma etapa muito importante, minha formação na faculdade, foram semestres de aprendizado, desafios, projetos, noites estudando e muita persistência e como dezembro também é mês do meu aniversário, decidi juntar os dois motivos em uma só comemoração! Quero celebrar a vida, a conquista do diploma e tudo o que ainda vem pela frente ao lado das pessoas que fizeram parte da minha caminhada, sua presença vai deixar esse dia ainda mais especial.📚​🎓💻​​',
   fraseHero: 'O deploy mais esperado do ano: uma nova versão da minha história, com aniversário e formatura no mesmo evento.',
   fotos: [
     { src: 'img/WhatsApp Image 2026-11-07 at 16.10.19.jpeg', legenda: 'Memórias inesquecíveis' },
-    { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg', legenda: 'A beleza de cada momento' },
+    { src: 'img/WhatsApp Image 2026-11-07 at 16.05.25.jpeg', legenda: 'Momentos aleatórios' },
     { src: 'img/WhatsApp Image 2026-11-07 at 17.00.34.jpeg', legenda: 'Histórias para contar' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (1).jpeg', legenda: 'Um brinde à vida' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.06.23.jpeg', legenda: 'momentos especiais' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (2).jpeg', legenda: 'O melhor ainda está por vir' }
   ],
   historia: [
-    { titulo: 'O primeiro commit', periodo: 'Tudo começa com uma ideia', texto: 'Toda jornada começa com curiosidade, vontade de aprender e coragem para dar o primeiro passo.', foto: 'img/WhatsApp Image 2026-11-07 at 16.17.59.jpeg' },
-    { titulo: 'Graduação', periodo: 'Análise e Desenvolvimento de Sistemas', texto: 'Novos conceitos, lógica, algoritmos e a descoberta de que tecnologia também é criar possibilidades.', foto: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg' },
-    { titulo: 'Entre bugs e entregas', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'img/entre bugs e entregas.jpeg' },
-    { titulo: 'Formatura + aniversário', periodo: '12 de dezembro de 2026 · 12h30', texto: 'O ciclo da graduação chega à entrega final. Agora é hora de celebrar a conquista, a vida e os próximos desafios.', foto: 'img/WhatsApp Image 2026-11-07 at 16.05.25.jpeg' }
+    { titulo: 'O primeiro commit 💻​', periodo: 'Tudo começa com uma ideia', texto: 'Toda jornada começa com curiosidade, vontade de aprender e coragem para dar o primeiro passo.', foto: 'img/WhatsApp Image 2026-11-07 at 16.17.59.jpeg' },
+    { titulo: 'Graduação 🎓​', periodo: 'Análise e Desenvolvimento de Sistemas', texto: 'Novos conceitos, lógica, algoritmos e a descoberta de que tecnologia também é criar possibilidades.', foto: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (3).jpeg' },
+    { titulo: 'Entre bugs e entregas👨🏻‍💻​', periodo: 'Projetos, desafios e evolução', texto: 'Trabalhos em equipe, códigos que deram certo (e os que precisaram de muitos ajustes), apresentações e aprendizados.', foto: 'img/entre bugs e entregas.jpeg' },
+    { titulo: 'Formatura + aniversário 🎂​', periodo: '12 de dezembro de 2026 · 12h30', texto: 'O ciclo da graduação chega à entrega final. Agora é hora de celebrar a conquista, a vida e os próximos desafios.', foto: 'img/formatura + aniversario.jpeg' }
   ]
 };
 
