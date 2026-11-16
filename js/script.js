@@ -186,7 +186,7 @@ function initRSVP() {
     if (destination.length < 10 || destination.length > 15) { status.textContent = 'O WhatsApp do organizador precisa ser configurado no script.js.'; return; }
     const confirmation = { name, phone, companions, createdAt: new Date().toISOString() };
     try { localStorage.setItem('aniversario_rsvp', JSON.stringify(confirmation)); } catch { /* Navegadores privados podem bloquear armazenamento; WhatsApp continua disponível. */ }
-    const message = `Olá Leonardo! \n Estou confirmando minha presença na festa.\nNome: ${name}\nTelefone: ${phone}\nQuantidade de acompanhantes: ${companions}\n 🎉 \n Nome do acompanhantes 1: \n Nome do acompanhantes 2:  \n Nome do acompanhantes 3: \n Nome do acompanhantes 4:`;
+    const message = `Olá Leonardo, estou confirmando minha presença na festa.🎓​🍾​🎉​🎈​\nNome: ${name}\nTelefone: ${phone}\nQuantidade de acompanhantes: ${companions}\n 👇​ - - - *Nome dos acompanhantes* - - - 👇​ \n Nome 1: \n Nome 2:  \n Nome 3: \n Nome 4:`;
     const url = `https://wa.me/${destination}?text=${encodeURIComponent(message)}`;
     status.textContent = '✓ Confirmação preparada! Envie a mensagem na janela do WhatsApp.';
     status.classList.add('success'); $('#rsvpForm').classList.add('confirmed');
