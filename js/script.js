@@ -29,7 +29,7 @@ const CONFIG = {
     { src: 'img/Momentos aleatórios.jpeg', legenda: 'Momentos aleatórios' },
     { src: 'img/WhatsApp Image 2026-11-07 at 17.00.34.jpeg', legenda: 'Locais aleatórios' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (1).jpeg', legenda: 'Um brinde à vida' },
-    { src: 'img/WhatsApp Image 2026-11-07 at 16.06.23.jpeg', legenda: 'momentos especiais' },
+    { src: 'img/momentos especiais .jpeg', legenda: 'momentos especiais' },
     { src: 'img/WhatsApp Image 2026-11-07 at 16.52.04 (2).jpeg', legenda: 'O melhor ainda está por vir' }
   ],
   historia: [
